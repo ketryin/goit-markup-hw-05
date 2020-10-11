@@ -73,11 +73,58 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-svg {
   width: 20px;
   height: 20px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* === MODAL WINDOW=== */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1) 500ms;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 528px;
+  height: 581px;
+  background-color: #fff;
+  border: 0px none rgba(255, 255, 255, 0.1);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1) 500ms;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: 0px ;
+  border-radius: 50%;
+  cursor: pointer;
 }
 /* === HEADER === */
 .header{
@@ -101,30 +148,43 @@ img {
 .header .container .address{
   margin-left: auto;
 }
-.nav-list-items .link{
+.nav-list-link{
   font-weight: 500;
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.02em;
   color: var(--subtitle);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-list-items:not(:last-child){
   margin-right: 50px;
 }
-.nav-list-items .link:hover,
-.nav-list-items .link:active,
-.nav-list-items .link:focus{
+.nav-list-link:hover,
+.nav-list-link:active,
+.nav-list-link:focus{
   color: var(--accent-color);
 }
-.nav-list-items .indicator-page{
+.indicator-page{
   color: var(--accent-color);
+  position: relative;
+}
+.indicator-page::after{
+  position: absolute;
+  display: block;
+  content: "";
+  min-width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  margin-top: 28px;
 }
 .header-address-link{
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.143;
   letter-spacing: 0.02em;
   color: var(--description);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-address-items:not(:last-child){
   margin-right: 50px;
@@ -139,20 +199,18 @@ img {
   width: 16px;
   height: 12px;
   color: var(--description);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address-icon-phone{
   margin-right: 10px;
   width: 10px;
   height: 16px;
   color: var(--description);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-address-link:hover,
 .header-address-link:active,
-.header-address-link:focus .address-icon-mail{
-  fill: var(--accent-color);
-}
-.header-address-link:hover,
-.header-address-link:active,
+.header-address-link:focus .address-icon-mail,
 .header-address-link:focus .address-icon-phone{
   fill: var(--accent-color);
 }
@@ -202,18 +260,19 @@ color:var(--description-dark-theme-color);
 }
 .container-social-link .social-list-link{
   background-color:rgba(255, 255, 255, 0.1);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.social-list-svg {
+
+.footer .social-list-svg {
   fill: #ffffff;
-}
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+} 
 .social-list-link:hover,
 .social-list-link:focus {
   background-color:var(--accent-color);
 }
-.social-list-link:hover .social-list-svg {
-  fill: #ffffff;
-}
-.social-list-link:focus .social-list-svg{
+.social-list-link:hover .social-list-svg,
+.social-list-link:focus .social-list-svg {
   fill: #ffffff;
 }
 .social-list-item:not(:last-child){
@@ -350,6 +409,27 @@ color:var(--description-dark-theme-color);
   display: flex;
   justify-content: space-between;
 }
+.services-list-img-wrapper{
+  position: relative;
+}
+.services-list-description-wrapper{
+position: absolute;
+bottom: 0;
+left: 0;
+width: 374px;
+height: 70px;
+background-color: rgba(47, 48, 58, 0.8);
+}
+.services-list-description{
+  padding: 27px 0;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+text-align: center;
+letter-spacing: 1.143;
+text-transform: uppercase;
+color: var(--description-dark-theme-color);
+}
 /* === END SERVICES === */
 
 /* === ABOUT US === */
@@ -390,9 +470,11 @@ color:var(--description-dark-theme-color);
 }
 .social-list-link {
   background-color: #ffffff;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-list-svg {
   fill: #AFB1B8;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* === END ABOUT US === */
 /* === CLIENTS === */
@@ -420,9 +502,11 @@ color:var(--description-dark-theme-color);
   border: 1px solid #AFB1B8;
   box-sizing: border-box;
   border-radius: 4px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list-icon{
   fill: #AFB1B8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-list-item:hover .link{
   border: 1px solid var(--accent-color);
@@ -470,6 +554,7 @@ color:var(--description-dark-theme-color);
   letter-spacing: 0.03em;
   color: var(--subtitle);
   background-color: var(--background-button);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-button:hover, 
 .portfolio-button:active,
@@ -485,6 +570,7 @@ color:var(--description-dark-theme-color);
 .portfolio-list-item{
   border: 1px solid #EEEEEE;
   width: 370px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-list-item:hover{
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -514,6 +600,33 @@ color:var(--description-dark-theme-color);
   letter-spacing: 0.03em;
   color: var(--description);
 }
-/* === ENDPORTFOLIO === */
+.portfolio-list-wrapper{
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-list-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px;
+  background: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-list-overlay-text{
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 1.556;
+  color: var(--title-dark-theme-color);
+}
+.portfolio-list-item:hover .portfolio-list-overlay{
+transform: translateX(0%);
+}
+
+/* === END PORTFOLIO === */
 /* ========== END PORTFOLIO PAGE ========== */
 

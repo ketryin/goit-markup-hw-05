@@ -28,12 +28,18 @@
           </a>
           <ul class="nav-list list">
             <li class="nav-list-items">
-              <a class="link indicator-page" href="./index.html">Студия</a>
+              <a class="nav-list-link indicator-page link" href="./index.html"
+                >Студия</a
+              >
             </li>
             <li class="nav-list-items">
-              <a class="link" href="./portfolio.html">Портфолио</a>
+              <a class="nav-list-link link" href="./portfolio.html"
+                >Портфолио</a
+              >
             </li>
-            <li class="nav-list-items"><a class="link" href="">Контакты</a></li>
+            <li class="nav-list-items">
+              <a class="nav-list-link link" href="">Контакты</a>
+            </li>
           </ul>
         </nav>
         <address class="address">
@@ -66,7 +72,9 @@
       <section class="hero">
         <div class="container">
           <h1 class="title-hero">Эффективные решения для вашего бизнеса</h1>
-          <button class="button-hero" type="button">Заказать услугу</button>
+          <button class="button-hero" type="button" data-modal-open>
+            Заказать услугу
+          </button>
         </div>
       </section>
       <!-- OUR ADVANTAGES -->
@@ -111,28 +119,43 @@
           <h2 class="title">Чем мы занимаемся</h2>
           <ul class="services-list">
             <li class="services-list-item list">
-              <img
-                src="./images/web-development.jpg"
-                alt="разработка программного обеспечения"
-                width="374"
-                height="294"
-              />
+              <div class="services-list-img-wrapper">
+                <img
+                  src="./images/web-development.jpg"
+                  alt="разработка программного обеспечения"
+                  width="374"
+                  height="294"
+                />
+                <div class="services-list-description-wrapper">
+                  <p class="services-list-description">Десктопные приложения</p>
+                </div>
+              </div>
             </li>
             <li class="services-list-item list">
-              <img
-                src="./images/applikation.jpg"
-                alt="разработка приложений"
-                width="374"
-                height="294"
-              />
+              <div class="services-list-img-wrapper">
+                <img
+                  src="./images/applikation.jpg"
+                  alt="разработка приложений"
+                  width="374"
+                  height="294"
+                />
+                <div class="services-list-description-wrapper">
+                  <p class="services-list-description">Мобильные приложения</p>
+                </div>
+              </div>
             </li>
             <li class="services-list-item list">
-              <img
-                src="./images/design.jpg"
-                alt="разработка дизайна"
-                width="374"
-                height="294"
-              />
+              <div class="services-list-img-wrapper">
+                <img
+                  src="./images/design.jpg"
+                  alt="разработка дизайна"
+                  width="374"
+                  height="294"
+                />
+                <div class="services-list-description-wrapper">
+                  <p class="services-list-description">Дизайнерские решения</p>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -341,7 +364,8 @@
             <li class="clients-list-item">
               <a class="link" href="">
                 <svg width="59" height="47" class="clients-list-icon">
-                  <use href="./images/sprite.svg#icon-logo-5"></use></svg></a>
+                  <use href="./images/sprite.svg#icon-logo-5"></use></svg
+              ></a>
             </li>
             <li class="clients-list-item">
               <a class="link" href="">
@@ -426,5 +450,17 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="close-btn" data-modal-close>
+          <svg width="30" height="30" class="button-close-icon">
+            <use href="./images/sprite.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
