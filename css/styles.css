@@ -320,6 +320,7 @@ color:var(--description-dark-theme-color);
 
   color:var(--title-dark-theme-color);
   background-color: var(--accent-color);
+  cursor: pointer;
 }
 /* === END HERO === */
 /* === OUR ADVANTAGES === */
@@ -379,9 +380,8 @@ color:var(--description-dark-theme-color);
   background-repeat: no-repeat;
   background-position: center;
 }
-
-}
 .advantages-list-title{
+  margin-top: 30px;
   margin-bottom: 10px;
   font-weight: 700;
   font-size: 14px;
